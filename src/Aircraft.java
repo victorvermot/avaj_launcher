@@ -3,14 +3,13 @@ public class Aircraft extends Flyable {
     protected String name;
     protected Coordinates coordinates;
 
-    protected Aircraft(long p_id, String p_name, Coordinates p_coordinates) {
+    Aircraft(long p_id, String p_name, Coordinates p_coordinates) {
         id = p_id;
         name = p_name;
         coordinates = p_coordinates;
     }
 
-    @Override
     public void updateConditions() {
-        System.out.println("Wsh");
+        System.out.println("Swagga");
     }
 }
