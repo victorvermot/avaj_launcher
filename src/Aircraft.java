@@ -1,5 +1,5 @@
 public class Aircraft extends Flyable {
-    protected long id;
+    public long id;
     protected String name;
     protected Coordinates coordinates;
 
@@ -7,6 +7,7 @@ public class Aircraft extends Flyable {
         id = p_id;
         name = p_name;
         coordinates = p_coordinates;
+        weatherTower.register(this);
     }
 
     public void updateConditions() {

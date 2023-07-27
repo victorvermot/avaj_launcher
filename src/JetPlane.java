@@ -3,6 +3,6 @@ public class JetPlane extends Aircraft {
         super(p_id, p_name, p_coordinates);
     }
     public void updateConditions() {
-        System.out.println("JetPlane");
+
     }
 }
