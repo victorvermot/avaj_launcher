@@ -12,7 +12,7 @@ public class SimulationRunner {
     public void startSimulation() {
         for (int i = 0; i < numberOfSimulations; i++) {
             for (Aircraft aircraft : vehiclesList) {
-                System.out.println(aircraft.id);
+                aircraft.updateConditions();
             }
         }
     }
