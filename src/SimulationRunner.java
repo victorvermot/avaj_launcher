@@ -9,11 +9,9 @@ public class SimulationRunner {
         this.vehiclesList = vehiclesList;
     }
 
-    public void startSimulation() {
+    public void startSimulation(WeatherTower weatherTower) {
         for (int i = 0; i < numberOfSimulations; i++) {
-            for (Aircraft aircraft : vehiclesList) {
-                aircraft.updateConditions();
-            }
+            weatherTower.changeWeather();
         }
     }
 }

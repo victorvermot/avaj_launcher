@@ -1,12 +1,9 @@
 public class WeatherTower extends Tower {
 
-    private int numberOfSimulations;
-
-    String getWeather(Coordinates p_coordinates){
-        System.out.println("Hello world");
-        return "swag";
+    public String getWeather(Coordinates p_coordinates){
+        return WeatherProvider.getInstance().getCurrentWeather(p_coordinates);
     }
-    void changeWeather() {
-        System.out.println("Hello world");
+    public void changeWeather() {
+        this.conditionChanged();
     }
 }

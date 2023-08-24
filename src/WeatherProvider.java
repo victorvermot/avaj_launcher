@@ -3,10 +3,10 @@ import java.util.HashMap;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class WeatherProvider {
-    private static WeatherProvider INSTANCE;
+    public static WeatherProvider INSTANCE;
     private String[] weather;
-    int x_axis_length = 100;
-    int y_axis_length = 100;
+    int x_axis_length = 1000;
+    int y_axis_length = 1000;
     int z_axis_length = 100;
     HashMap<Number, String> weatherTypes = new HashMap<Number, String>();
     ArrayList<ArrayList<ArrayList<String>>> space = new ArrayList<>(x_axis_length);

@@ -1,8 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-        Parser test = new Parser("scenario.txt");
-        WeatherProvider test2 = WeatherProvider.getInstance();
-        SimulationRunner sim = new SimulationRunner(test.vehiclesList, test.getNumberOfSimulations());
-        sim.startSimulation();
+        WeatherTower weatherTower = new WeatherTower();
+        Parser test = new Parser("scenario.txt", weatherTower);
+        SimulationRunner program = new SimulationRunner(test.vehiclesList, test.getNumberOfSimulations());
+        program.startSimulation(weatherTower);
     }
 }

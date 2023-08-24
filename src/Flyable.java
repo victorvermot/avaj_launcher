@@ -1,5 +1,5 @@
 abstract class Flyable {
-    protected WeatherTower weatherTower = new WeatherTower();
+    protected WeatherTower weatherTower;
     public abstract void updateConditions();
     public void registerTower(WeatherTower p_tower) {
         weatherTower = p_tower;

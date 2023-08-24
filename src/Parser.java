@@ -8,10 +8,13 @@ public class Parser {
     private String filePath;
     public List<Aircraft> vehiclesList = new ArrayList<>();
     private int numberOfSimulations;
+
+    private WeatherTower weatherTower;
     private AircraftFactory aircraftFactory = AircraftFactory.getInstance();
 
-    public Parser(String filePath) {
+    public Parser(String filePath, WeatherTower weatherTower) {
         this.filePath = filePath;
+        this.weatherTower = weatherTower;
         parse();
     }
 
@@ -51,7 +54,8 @@ public class Parser {
             throw new IncorrectConfigLine("Line is wrong");
         }
         Coordinates coordinates = new Coordinates(Integer.parseInt(result[2]), Integer.parseInt(result[3]), Integer.parseInt(result[4]));
-        vehiclesList.add((Aircraft) aircraftFactory.newAircraft(result[0], result[1], coordinates));
+        Aircraft newVehicle = (Aircraft) aircraftFactory.newAircraft(result[0], result[1], coordinates, this.weatherTower);
+        vehiclesList.add(newVehicle);
     }
 
 }
