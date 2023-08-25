@@ -2,9 +2,6 @@ public final class AircraftFactory {
     private static AircraftFactory INSTANCE;
     private int id = 0;
 
-    private AircraftFactory() {
-    }
-
     public static AircraftFactory getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new AircraftFactory();
