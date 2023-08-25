@@ -41,6 +41,9 @@ public class Parser {
                 }
                 line = reader.readLine();
             }
+            if (vehiclesList.isEmpty()) {
+                throw new IncorrectConfigLine("Should be at least one line");
+            }
             reader.close();
         }
         catch (IOException | NumberFormatException | IncorrectConfigLine e) {

@@ -12,5 +12,6 @@ public class SimulationRunner {
             weatherTower.changeWeather();
         }
         System.out.println("SIMULATION IS NOW FINISHED");
+        MessageProvider.getInstance().closeFile();
     }
 }

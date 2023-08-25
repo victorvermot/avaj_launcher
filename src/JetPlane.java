@@ -4,7 +4,7 @@ public class JetPlane extends Aircraft {
     }
     public void updateConditions() {
         Meteo currentWeather = this.weatherTower.getWeather(this.coordinates);
-        System.out.println(this.name + ": " + MessageProvider.getInstance().getMessage(Vehicles.JETPLANE, currentWeather));
+        MessageProvider.getInstance().saveMessage(this.name + ": ", Vehicles.JETPLANE, currentWeather);
         switch (currentWeather) {
             case LANDED:
                 this.weatherTower.unregister(this, this.name);
