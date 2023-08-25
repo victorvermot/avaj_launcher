@@ -2,5 +2,6 @@ public enum Meteo {
     SUN,
     RAIN,
     FOG,
-    SNOW
+    SNOW,
+    LANDED,
 }

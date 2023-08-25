@@ -18,6 +18,9 @@ public class Coordinates {
     public int getHeight() {
         return height;
     }
+    public void setHeight(int new_height) {
+        this.height = new_height;
+    }
 
     public int getLatitude() {
         return latitude;

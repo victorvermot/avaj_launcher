@@ -8,8 +8,8 @@ public class WeatherProvider {
     int x_axis_length = 1000;
     int y_axis_length = 1000;
     int z_axis_length = 100;
-    HashMap<Number, String> weatherTypes = new HashMap<Number, String>();
-    ArrayList<ArrayList<ArrayList<String>>> space = new ArrayList<>(x_axis_length);
+    HashMap<Number, Meteo> weatherTypes = new HashMap<>();
+    ArrayList<ArrayList<ArrayList<Meteo>>> space = new ArrayList<>(x_axis_length);
 
     public static WeatherProvider getInstance() {
         if(INSTANCE == null) {
@@ -19,14 +19,14 @@ public class WeatherProvider {
     }
 
     private WeatherProvider() {
-        weatherTypes.put(0, "RAIN");
-        weatherTypes.put(1, "FOG");
-        weatherTypes.put(2, "SUN");
-        weatherTypes.put(3, "SNOW");
+        weatherTypes.put(0, Meteo.RAIN);
+        weatherTypes.put(1, Meteo.FOG);
+        weatherTypes.put(2, Meteo.SUN);
+        weatherTypes.put(3, Meteo.SNOW);
         for (int i = 0; i < x_axis_length; i++) {
-            space.add(new ArrayList<ArrayList<String>>(y_axis_length));
+            space.add(new ArrayList<ArrayList<Meteo>>(y_axis_length));
             for (int j = 0; j < y_axis_length; j++) {
-                space.get(i).add(new ArrayList<String>(z_axis_length));
+                space.get(i).add(new ArrayList<Meteo>(z_axis_length));
             }
         }
         for (int i = 0; i < x_axis_length; i++) {
@@ -39,7 +39,16 @@ public class WeatherProvider {
         }
     }
 
-    public String getCurrentWeather(Coordinates p_coordinates) {
+    public Meteo getCurrentWeather(Coordinates p_coordinates) {
+        if (p_coordinates.getHeight() >= 99) {
+            p_coordinates.setHeight(99);
+        }
+        if (p_coordinates.getLatitude() >= 99) {
+            p_coordinates.setHeight(99);
+        }
+        else if (p_coordinates.getHeight() <= 0) {
+            return Meteo.LANDED;
+        }
         return (space.get(p_coordinates.getLongitude()).get(p_coordinates.getLatitude()).get(p_coordinates.getHeight()));
     }
 

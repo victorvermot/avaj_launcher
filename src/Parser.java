@@ -6,23 +6,25 @@ import java.util.List;
 
 public class Parser {
     private String filePath;
+    private Boolean isFileCorrect;
     public List<Aircraft> vehiclesList = new ArrayList<>();
     private int numberOfSimulations;
-
     private WeatherTower weatherTower;
     private AircraftFactory aircraftFactory = AircraftFactory.getInstance();
 
     public Parser(String filePath, WeatherTower weatherTower) {
         this.filePath = filePath;
         this.weatherTower = weatherTower;
+        this.isFileCorrect = true;
         parse();
     }
 
     public int getNumberOfSimulations() {
         return numberOfSimulations;
     }
+    public Boolean getIsFileCorrect() { return isFileCorrect; }
 
-    private List<Aircraft> parse() {
+    private void parse() {
         BufferedReader reader;
         boolean firstLine = true;
 
@@ -42,10 +44,13 @@ public class Parser {
             reader.close();
         }
         catch (IOException | NumberFormatException | IncorrectConfigLine e) {
-            System.out.println(e.getMessage());
-            return null;
+            System.out.println("The following error was encountered while parsing the config file: " + e.getMessage() +
+                    "\nThe file should have the following format:\n" +
+                    "- FIRST LINE: [number_of_time_the_simulation_will_run]\n"+
+                    "- NEXT LINES: [vehicle_type vehicle_name coordinate_x coordinate_y coordinate_z]"
+            );
+            this.isFileCorrect = false;
         }
-        return vehiclesList;
     }
 
     public void createVehiclesFromLine(String line) throws IncorrectConfigLine {
@@ -55,6 +60,9 @@ public class Parser {
         }
         Coordinates coordinates = new Coordinates(Integer.parseInt(result[2]), Integer.parseInt(result[3]), Integer.parseInt(result[4]));
         Aircraft newVehicle = (Aircraft) aircraftFactory.newAircraft(result[0], result[1], coordinates, this.weatherTower);
+        if (newVehicle == null) {
+            throw new IncorrectConfigLine("Vehicle name is wrong");
+        }
         vehiclesList.add(newVehicle);
     }
 
