@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class SimulationRunner {
     private int numberOfSimulations;
     public SimulationRunner(int numberOfSimulations) {
@@ -12,6 +9,6 @@ public class SimulationRunner {
             weatherTower.changeWeather();
         }
         System.out.println("SIMULATION IS NOW FINISHED");
-        MessageProvider.getInstance().closeFile();
+        MessageManager.getInstance().closeFile();
     }
 }

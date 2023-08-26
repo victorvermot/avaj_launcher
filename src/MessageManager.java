@@ -1,12 +1,11 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
-public class MessageProvider {
+public class MessageManager {
 
-    public static MessageProvider INSTANCE;
+    public static MessageManager INSTANCE;
     BufferedWriter writer;
     private Map<Meteo, String> baloonMessages = Map.of(
             Meteo.SUN, "Quoikousun",
@@ -30,9 +29,9 @@ public class MessageProvider {
             Meteo.LANDED, "HELICO AU SOL FRR"
     );
 
-    public static MessageProvider getInstance() {
+    public static MessageManager getInstance() {
         if (INSTANCE == null) {
-            INSTANCE = new MessageProvider();
+            INSTANCE = new MessageManager();
         }
         return INSTANCE;
     }
@@ -71,6 +70,5 @@ public class MessageProvider {
             System.out.println("Could not delete output file");
         }
     }
-
 
 }

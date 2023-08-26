@@ -42,11 +42,11 @@ public class Parser {
                 line = reader.readLine();
             }
             if (vehiclesList.isEmpty()) {
-                throw new IncorrectConfigLine("Should be at least one line");
+                throw new IncorrectConfigFile("Should be at least one line");
             }
             reader.close();
         }
-        catch (IOException | NumberFormatException | IncorrectConfigLine e) {
+        catch (IOException | NumberFormatException | IncorrectConfigFile e) {
             System.out.println("The following error was encountered while parsing the config file: " + e.getMessage() +
                     "\nThe file should have the following format:\n" +
                     "- FIRST LINE: [number_of_time_the_simulation_will_run]\n"+
@@ -56,15 +56,15 @@ public class Parser {
         }
     }
 
-    public void createVehiclesFromLine(String line) throws IncorrectConfigLine {
+    public void createVehiclesFromLine(String line) throws IncorrectConfigFile {
         String[] result = line.split(" ");
         if (result.length != 5) {
-            throw new IncorrectConfigLine("Line is wrong");
+            throw new IncorrectConfigFile("Line is wrong");
         }
         Coordinates coordinates = new Coordinates(Integer.parseInt(result[2]), Integer.parseInt(result[3]), Integer.parseInt(result[4]));
         Aircraft newVehicle = (Aircraft) aircraftFactory.newAircraft(result[0], result[1], coordinates, this.weatherTower);
         if (newVehicle == null) {
-            throw new IncorrectConfigLine("Vehicle name is wrong");
+            throw new IncorrectConfigFile("Vehicle name is wrong");
         }
         vehiclesList.add(newVehicle);
     }
