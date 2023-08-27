@@ -24,9 +24,9 @@ public class WeatherProvider {
         weatherTypes.put(2, Meteo.SUN);
         weatherTypes.put(3, Meteo.SNOW);
         for (int i = 0; i < x_axis_length; i++) {
-            space.add(new ArrayList<ArrayList<Meteo>>(y_axis_length));
+            space.add(new ArrayList<>(y_axis_length));
             for (int j = 0; j < y_axis_length; j++) {
-                space.get(i).add(new ArrayList<Meteo>(z_axis_length));
+                space.get(i).add(new ArrayList<>(z_axis_length));
             }
         }
         for (int i = 0; i < x_axis_length; i++) {
