@@ -1,3 +1,5 @@
+package com.vvermot.simulator;
+
 public class Coordinates {
     private int longitude;
     private int latitude;

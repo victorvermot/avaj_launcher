@@ -1,3 +1,5 @@
+package com.vvermot.simulator;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ThreadLocalRandom;

@@ -1,3 +1,5 @@
+package com.vvermot.simulator;
+
 public class SimulationRunner {
     private int numberOfSimulations;
     public SimulationRunner(int numberOfSimulations) {

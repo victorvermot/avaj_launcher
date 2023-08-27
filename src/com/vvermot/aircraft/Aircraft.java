@@ -1,5 +1,6 @@
-import java.util.HashMap;
-
+package com.vvermot.aircraft;
+import com.vvermot.simulator.Coordinates;
+import com.vvermot.simulator.WeatherTower;
 public class Aircraft extends Flyable {
     public long id;
     protected String name;

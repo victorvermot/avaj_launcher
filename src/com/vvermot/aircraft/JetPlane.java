@@ -1,3 +1,6 @@
+package com.vvermot.aircraft;
+import com.vvermot.simulator.*;
+
 public class JetPlane extends Aircraft {
     public JetPlane(long p_id, String p_name, Coordinates p_coordinates, WeatherTower weatherTower) {
         super(p_id, p_name, p_coordinates, weatherTower);

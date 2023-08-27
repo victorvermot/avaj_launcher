@@ -1,3 +1,8 @@
+package com.vvermot.simulator;
+
+import com.vvermot.aircraft.AircraftFactory;
+import com.vvermot.aircraft.Aircraft;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

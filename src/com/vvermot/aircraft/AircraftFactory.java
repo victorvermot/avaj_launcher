@@ -1,3 +1,6 @@
+package com.vvermot.aircraft;
+import com.vvermot.simulator.Coordinates;
+import com.vvermot.simulator.WeatherTower;
 public final class AircraftFactory {
     private static AircraftFactory INSTANCE;
     private int id = 0;
@@ -9,7 +12,7 @@ public final class AircraftFactory {
         return INSTANCE;
     }
 
-    Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates, WeatherTower weatherTower) {
+    public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates, WeatherTower weatherTower) {
         id++;
         if (p_type == null) {
             return null;
