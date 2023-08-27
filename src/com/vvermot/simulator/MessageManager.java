@@ -14,21 +14,21 @@ public class MessageManager {
             Meteo.FOG, "Quoikoufog",
             Meteo.SNOW, "Quoikousnow",
             Meteo.RAIN, "Quoikourain",
-            Meteo.LANDED, "BALOON AU SOL FRR"
+            Meteo.LANDED, "The baloon landed safely"
     );
     private Map<Meteo, String> jetPlaneMessages = Map.of(
-            Meteo.SUN, "Quoikousun",
-            Meteo.FOG, "Quoikoufog",
-            Meteo.SNOW, "Quoikousnow",
-            Meteo.RAIN, "Quoikourain",
-            Meteo.LANDED, "JETPLANE AU SOL FRR"
+            Meteo.SUN, "The sun is melting my body",
+            Meteo.FOG, "The fog limits my speed",
+            Meteo.SNOW, "The snow is making me chilly",
+            Meteo.RAIN, "The rain is going to make it difficult to land",
+            Meteo.LANDED, "The jetplane reached the ground"
     );
     private Map<Meteo, String> helicopterMessages = Map.of(
-            Meteo.SUN, "Quoikousun",
-            Meteo.FOG, "Quoikoufog",
-            Meteo.SNOW, "Quoikousnow",
-            Meteo.RAIN, "Quoikourain",
-            Meteo.LANDED, "HELICO AU SOL FRR"
+            Meteo.SUN, "The sun is reflecting on my palms",
+            Meteo.FOG, "The fog is making it hard to see",
+            Meteo.SNOW, "The snow is white-washing me",
+            Meteo.RAIN, "The rain makes me slippery",
+            Meteo.LANDED, "The helicopter landed safely"
     );
 
     public static MessageManager getInstance() {
