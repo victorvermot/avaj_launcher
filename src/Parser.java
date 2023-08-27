@@ -16,7 +16,7 @@ public class Parser {
         this.filePath = filePath;
         this.weatherTower = weatherTower;
         this.isFileCorrect = true;
-        parse();
+        parseConfigFile();
     }
 
     public int getNumberOfSimulations() {
@@ -24,7 +24,7 @@ public class Parser {
     }
     public Boolean getIsFileCorrect() { return isFileCorrect; }
 
-    private void parse() {
+    private void parseConfigFile() {
         BufferedReader reader;
         boolean firstLine = true;
 
@@ -56,7 +56,7 @@ public class Parser {
         }
     }
 
-    public void createVehiclesFromLine(String line) throws IncorrectConfigFile {
+    private void createVehiclesFromLine(String line) throws IncorrectConfigFile {
         String[] result = line.split(" ");
         if (result.length != 5) {
             throw new IncorrectConfigFile("Line is wrong");
